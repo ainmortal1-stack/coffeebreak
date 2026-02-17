@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,15 +20,24 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.coffeebreak.R
+import com.example.coffeebreak.feature_app.Routes
 import com.example.coffeebreak.feature_app.presintation.ui.theme.AppColor
+import kotlinx.coroutines.delay
 
-@Preview(showBackground = true)
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(navController: NavController) {
+    LaunchedEffect(Unit) {
+        delay(1500)
+        navController.navigate(Routes.Authorization.route)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -69,12 +79,13 @@ fun WelcomeScreen() {
         Column(modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                "Почувствуй себя бариста!",
+                "Почувствуй себя\nбариста!",
                 style = TextStyle(
                     fontSize = 25.sp,
-                    color = AppColor.black
-
-                )
+                    color = AppColor.black,
+                    fontWeight = FontWeight.Medium
+                ),
+                textAlign = TextAlign.Center
             )
             Text(
                 "Любой кофе под ваш заказ",
