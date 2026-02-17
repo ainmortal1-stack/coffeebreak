@@ -3,6 +3,7 @@ package com.example.coffeebreak.feature_app.presintation.authorization
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,14 +41,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.coffeebreak.R
+import com.example.coffeebreak.feature_app.Routes
 import com.example.coffeebreak.feature_app.presintation.ui.theme.AppColor
 
 @Composable
 fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationViewModel) {
 
-    var email by rememberSaveable { mutableStateOf(viewModel.email) }
+    var mail by rememberSaveable { mutableStateOf(viewModel.mail) }
     var pass by rememberSaveable { mutableStateOf(viewModel.pass) }
     var isPassVisible by rememberSaveable { mutableStateOf(true) }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -76,11 +79,14 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
         Spacer(Modifier.size(57.dp))
 
         // поля
-        Column(Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            Modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             TextField(
-                value = email,
-                onValueChange = { email = it },
+                value = viewModel.mail,
+                onValueChange = { viewModel.mail = it },
                 placeholder = {
                     Text(
                         "Адрес электронной почты ",
@@ -108,7 +114,9 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
                 },
                 colors = TextFieldDefaults.colors(
                     unfocusedContainerColor = Color.Transparent,
-                    focusedContainerColor = Color.Transparent
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedIndicatorColor = AppColor.lightgray,
+                    focusedLabelColor = AppColor.lightgray
                 ),
                 modifier = Modifier.fillMaxWidth()
 
@@ -116,8 +124,8 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
             )
 
             TextField(
-                value = pass,
-                onValueChange = { pass = it },
+                value = viewModel.pass,
+                onValueChange = { viewModel.pass = it },
                 placeholder = {
                     Text(
                         "Пароль ",
@@ -155,23 +163,31 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
 
                 colors = TextFieldDefaults.colors(
                     unfocusedContainerColor = Color.Transparent,
-                    focusedContainerColor = Color.Transparent
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedIndicatorColor = AppColor.lightgray,
+                    focusedLabelColor = AppColor.lightgray
                 ),
                 visualTransformation = if (isPassVisible) {
-                    VisualTransformation.None
-                } else {
                     PasswordVisualTransformation()
+                } else {
+                    VisualTransformation.None
                 },
                 modifier = Modifier.fillMaxWidth()
 
             )
-            Spacer(Modifier.size(27.dp))
+//            Spacer(Modifier.size(27.dp))
             Text(
                 "Забыли пароль?",
                 style = TextStyle(
                     fontSize = 14.sp,
                     color = AppColor.c14AC46
                 ),
+                modifier = Modifier
+                    .clickable(
+                        onClick = {
+                            navController.navigate(Routes.ForgotPassword.route)
+                        }
+                    )
             )
 
         }
@@ -179,7 +195,7 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
         Spacer(Modifier.size(136.dp))
 
         IconButton(
-            onClick = {},
+            onClick = { navController.navigate(Routes.StartUp.route) },
             modifier = Modifier
                 .background(AppColor.c14AC46, CircleShape)
                 .size(64.dp)

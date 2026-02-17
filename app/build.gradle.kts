@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    kotlin("plugin.serialization") version "2.0.21"
+    kotlin("plugin.serialization") version "2.3.10"
 
 }
 
@@ -30,12 +30,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+//    kotlinOptions {
+//        jvmTarget = "11"
+//    }
     buildFeatures {
         compose = true
     }
@@ -60,20 +60,19 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+
+    //supa
     implementation(platform("io.github.jan-tennert.supabase:bom:3.0.0"))
     implementation("io.github.jan-tennert.supabase:postgrest-kt")
     implementation("io.github.jan-tennert.supabase:auth-kt")
     implementation("io.github.jan-tennert.supabase:realtime-kt")
-////
-////    //coil
-//    implementation("io.coil-kt:coil-compose:2.4.0")
-////
-////    //ktor koin
-//    implementation("io.ktor:ktor-client-android:3.3.3")
+
+    //ktor koin
+    implementation("io.ktor:ktor-client-android:3.3.3")
 //    implementation(platform("io.insert-koin:koin-bom:4.1.1"))
-//    implementation("io.insert-koin:koin-android")
+    implementation("io.insert-koin:koin-android")
 //    implementation("io.insert-koin:koin-core-coroutines")
 //    implementation("io.insert-koin:koin-androidx-workmanager")
-//    implementation("io.insert-koin:koin-androidx-compose:3.3.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.3.0")
 
 }
