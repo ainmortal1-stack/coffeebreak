@@ -8,8 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.coffeebreak.feature_app.data.repo.AuthRepositoryImpl
 import com.example.coffeebreak.feature_app.presintation.authorization.AuthorizationScreen
 import com.example.coffeebreak.feature_app.presintation.authorization.AuthorizationViewModel
+import com.example.coffeebreak.feature_app.presintation.forgotpass.ForgotPasswordScreen
+import com.example.coffeebreak.feature_app.presintation.forgotpass.ForgotPasswordViewModel
+import com.example.coffeebreak.feature_app.presintation.startup.StartUpScreen
 import com.example.coffeebreak.feature_app.presintation.ui.theme.CoffeebreakTheme
 import com.example.coffeebreak.feature_app.presintation.welcome.WelcomeScreen
 
@@ -29,7 +33,20 @@ class MainActivity : ComponentActivity() {
                         WelcomeScreen(navController)
                     }
                     composable(Routes.Authorization.route) {
-                        AuthorizationScreen(navController,AuthorizationViewModel())
+                        AuthorizationScreen(
+                            navController,
+                            AuthorizationViewModel(AuthRepositoryImpl())
+                        )
+                    }
+                    composable(Routes.ForgotPassword.route) {
+                        ForgotPasswordScreen(
+                            navController, ForgotPasswordViewModel(
+                                AuthRepositoryImpl()
+                            )
+                        )
+                    }
+                    composable(Routes.StartUp.route) {
+                        StartUpScreen(navController)
                     }
                 }
             }
