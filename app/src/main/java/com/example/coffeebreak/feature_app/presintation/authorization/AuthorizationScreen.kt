@@ -195,7 +195,9 @@ fun AuthorizationScreen(navController: NavController, viewModel: AuthorizationVi
         Spacer(Modifier.size(136.dp))
 
         IconButton(
-            onClick = { navController.navigate(Routes.StartUp.route) },
+            onClick = {
+                navController.navigate(Routes.StartUp.route)
+            },
             modifier = Modifier
                 .background(AppColor.c14AC46, CircleShape)
                 .size(64.dp)

@@ -36,7 +36,7 @@ import kotlinx.coroutines.delay
 fun StartUpScreen(navController: NavController) {
     LaunchedEffect(Unit) {
         delay(1500)
-        navController.navigate(Routes.StartUp.route)
+        navController.navigate(Routes.Menu.route)
     }
 
     Box(
