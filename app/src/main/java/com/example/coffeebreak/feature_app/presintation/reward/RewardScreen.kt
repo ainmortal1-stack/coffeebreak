@@ -166,8 +166,8 @@ fun RewardScreen(navController: NavController) {
                                     AppColor.darkonelight,
                                     RoundedCornerShape(5.dp)
                                 )
-                                .height(111.dp)
-                                .width(28.dp)
+                                .height(28.dp)
+                                .width(111.dp)
                         ) {
                             Text(
                                 "Оплатить баллами",
