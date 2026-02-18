@@ -1,6 +1,7 @@
 package com.example.coffeebreak.feature_app
 
 import android.app.Application
+import org.koin.core.context.KoinContext
 import org.koin.core.context.startKoin
 
 class App: Application() {
