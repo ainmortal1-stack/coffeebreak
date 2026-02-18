@@ -22,4 +22,9 @@ object AppColor{
     val bgb = Color(0xFF1D1D1D)
     val d8 = Color(0xFFD8D8D8)
     val darkonelight = Color(0xFF327A59)
+    val f7 = Color(0xFFF7F8FB)
+    val c2828 = Color(0xFF282828)
+    val c0018 = Color(0xFF001833)
+    val f4 = Color(0xFFF4F5F7)
+    val c14f = Color(0xFF147F37)
 }
