@@ -12,11 +12,13 @@ import com.example.coffeebreak.feature_app.data.repo.AuthRepositoryImpl
 import com.example.coffeebreak.feature_app.presintation.authorization.AuthorizationScreen
 import com.example.coffeebreak.feature_app.presintation.authorization.AuthorizationViewModel
 import com.example.coffeebreak.feature_app.presintation.common.EmptyScreen
+import com.example.coffeebreak.feature_app.presintation.designer.DesignerScreen
 import com.example.coffeebreak.feature_app.presintation.forgotpass.ForgotPasswordScreen
 import com.example.coffeebreak.feature_app.presintation.forgotpass.ForgotPasswordViewModel
 import com.example.coffeebreak.feature_app.presintation.menu.MenuScreen
 import com.example.coffeebreak.feature_app.presintation.myorder.MyOrderHidtory
 import com.example.coffeebreak.feature_app.presintation.myorder.MyOrderScreen
+import com.example.coffeebreak.feature_app.presintation.orderoptions.OrderOptionsScreen
 import com.example.coffeebreak.feature_app.presintation.profile.ProfileQRCodeScreen
 import com.example.coffeebreak.feature_app.presintation.profile.ProfileScreen
 import com.example.coffeebreak.feature_app.presintation.reward.RewardScreen
@@ -75,6 +77,12 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(Routes.OrderHistory.route) {
                         MyOrderHidtory(navController)
+                    }
+                    composable(Routes.OrderOptions.route) {
+                        OrderOptionsScreen(navController)
+                    }
+                    composable(Routes.DesignerScreen.route) {
+                        DesignerScreen(navController)
                     }
                 }
             }

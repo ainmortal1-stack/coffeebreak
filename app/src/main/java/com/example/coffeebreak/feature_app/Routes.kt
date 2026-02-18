@@ -12,4 +12,6 @@ sealed class Routes(val route: String) {
     object ProfileQRCode : Routes("QR")
     object Reward : Routes("Reward")
     object OrderHistory : Routes("OrderHistory")
+    object OrderOptions : Routes("OrderOptions")
+    object DesignerScreen : Routes("Designer")
 }
