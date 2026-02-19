@@ -478,7 +478,7 @@ fun OrderOptionsScreen(navController: NavController) {
                         )
                     }
                     TextButton(
-                        onClick = {},
+                        onClick = {navController.navigate(Routes.MyOrder.route)},
                         modifier = Modifier
                             .fillMaxWidth()
                             .background(AppColor.darkone, RoundedCornerShape(30.dp))

@@ -150,7 +150,7 @@ fun CustomCard(
             .fillMaxWidth()
             .background(AppColor.cFFFFFF, RoundedCornerShape(15.dp))
             .height(164.dp)
-            .clickable(onClick = { navController.navigate(Routes.Empty.route) })
+            .clickable(onClick = { navController.navigate(Routes.OrderOptions.route) })
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),

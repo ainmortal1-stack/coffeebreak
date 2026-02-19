@@ -18,6 +18,7 @@ import com.example.coffeebreak.feature_app.presintation.forgotpass.ForgotPasswor
 import com.example.coffeebreak.feature_app.presintation.menu.MenuScreen
 import com.example.coffeebreak.feature_app.presintation.myorder.MyOrderHidtory
 import com.example.coffeebreak.feature_app.presintation.myorder.MyOrderScreen
+import com.example.coffeebreak.feature_app.presintation.myorder.OrderConfirm
 import com.example.coffeebreak.feature_app.presintation.orderoptions.OrderOptionsScreen
 import com.example.coffeebreak.feature_app.presintation.profile.ProfileQRCodeScreen
 import com.example.coffeebreak.feature_app.presintation.profile.ProfileScreen
@@ -83,6 +84,9 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(Routes.DesignerScreen.route) {
                         DesignerScreen(navController)
+                    }
+                    composable(Routes.OrderConf.route) {
+                        OrderConfirm(navController)
                     }
                 }
             }

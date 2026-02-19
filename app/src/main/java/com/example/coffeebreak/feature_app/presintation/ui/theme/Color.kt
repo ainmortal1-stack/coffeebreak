@@ -27,4 +27,6 @@ object AppColor{
     val c0018 = Color(0xFF001833)
     val f4 = Color(0xFFF4F5F7)
     val c14f = Color(0xFF147F37)
+    val c75 = Color(0xFF757575)
+    val c324 = Color(0xFF324A59)
 }
